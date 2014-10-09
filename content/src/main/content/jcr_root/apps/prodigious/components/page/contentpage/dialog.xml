@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="400"
+    stateful="false"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <basic jcr:primaryType="cq:Panel" title="Basic">
+					<items jcr:primaryType="cq:WidgetCollection">
+						<basic 
+						    jcr:primaryType="cq:Widget" 
+						    collapsed="false" 
+						    collapsible="false"
+							xtype="dialogfieldset">
+							<items 
+							    jcr:primaryType="cq:WidgetCollection">
+								<title 
+								    jcr:primaryType="cq:Widget" 
+								    fieldLabel="Title" 
+								    name="./jcr:title"
+									xtype="textfield" />
+								<tags 
+								    jcr:primaryType="cq:Widget" 
+								    cls="cq-propsdialog-tags"
+									fieldLabel="Tags/Keywords" 
+									name="./cq:tags" 
+									xtype="tags" />
+								<canonicaltag
+								    jcr:primaryType="cq:Widget" 
+								    fieldLabel="Canonical Tag"
+								    fieldDescription="Include a custom canonical tag if you want to overwrite the default one." 
+								    name="./canonicaltag"
+									xtype="pathfield" />
+								<usehttpsforcanonicaltag
+								    jcr:primaryType="cq:Widget" 
+								    fieldLabel="Use HTTPS for canonical tag" 
+									name="./usehttpsforcanonicaltag" 
+									type="checkbox" 
+									xtype="selection" />
+								<hideinnav 
+								    jcr:primaryType="cq:Widget" 
+								    fieldLabel="Hide in Navigation"
+									inputValue="true" 
+									name="./hideInNav" 
+									type="checkbox" 
+									xtype="selection" />
+								<hideinrobots 
+								    jcr:primaryType="cq:Widget" 
+								    fieldLabel="Hide in robots.txt"
+									inputValue="true" 
+									name="./hideInRobots" 
+									type="checkbox" 
+									xtype="selection" />
+								<showinterstitial 
+								    jcr:primaryType="cq:Widget" 
+								    fieldLabel="Show interstitial on page load"
+									name="./showinterstitial" 
+									type="checkbox" 
+									xtype="selection" />
+								<restrictedinterstitial 
+								    jcr:primaryType="cq:Widget" 
+								    fieldLabel="Restricted interstitial"
+									name="./restrictedinterstitial" 
+									type="checkbox" 
+									xtype="selection" />
+								<interstitialsessioncookie 
+								    jcr:primaryType="cq:Widget" 
+								    fieldLabel="Interstitial Session cookie name"
+									name="./interstitialsessioncookie"  
+									xtype="textfield" />
+							</items>
+						</basic>
+						<more_titles
+		                    jcr:primaryType="cq:Widget"
+		                    path="/libs/foundation/components/page/tab_basic/items/more_titles.infinity.json"
+		                    xtype="cqinclude"/>
+						<onofftime
+		                    jcr:primaryType="cq:Widget"
+		                    path="/libs/foundation/components/page/tab_basic/items/onofftime.infinity.json"
+		                    xtype="cqinclude"/>
+						<vanity
+		                    jcr:primaryType="cq:Widget"
+		                    path="/libs/foundation/components/page/tab_basic/items/vanity.infinity.json"
+		                    xtype="cqinclude"/>
+		                    <metatags
+			                        jcr:primaryType="cq:Widget"
+			                        fieldDescription="List of meta tags to include in header"
+			                        fieldLabel="Meta tags:"
+			                        name="./metatags"
+			                        xtype="multifield">
+			                        <fieldConfig
+			                            jcr:primaryType="cq:Widget"
+			                            width="155"
+			                            xtype="aetna.metatag"/>
+                    			</metatags>
+					</items>
+				</basic>
+                <advanced
+                    jcr:primaryType="cq:Widget"
+                    path="/libs/foundation/components/page/tab_advanced.infinity.json"
+                    xtype="cqinclude"/>
+                <image
+                    jcr:primaryType="cq:Widget"
+                    path="/libs/foundation/components/page/tab_image.infinity.json"
+                    xtype="cqinclude"/>
+                <cloudservices
+                    jcr:primaryType="cq:Widget"
+                    path="/libs/foundation/components/page/tab_cloudservices.infinity.json"
+                    xtype="cqinclude"/>
+                <blueprint
+                    jcr:primaryType="cq:Widget"
+                    path="/libs/foundation/components/page/tab_blueprint.infinity.json"
+                    xtype="cqinclude"/>
+                <livecopy
+                    jcr:primaryType="cq:Widget"
+                    path="/libs/foundation/components/page/tab_livecopy.infinity.json"
+                    xtype="cqinclude"/>
+                <analytics
+                    jcr:primaryType="cq:Panel"
+                    title="Analytics">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <webtreandsmetadatatype
+	                        jcr:primaryType="cq:Widget"
+	                        fieldDescription="Type of the metadata to add. If you leave it blank, this will be inherit from parent pages. Otherwise, will be overwritten."
+	                        fieldLabel="WebTreands MetaData Type"
+	                        name="./webtreandsmetadatatype"
+	                        type="select"
+	                        xtype="selection">
+	                        <options jcr:primaryType="cq:WidgetCollection">
+	                            <none
+	                                jcr:primaryType="nt:unstructured"
+	                                text="None"
+	                                value=""/>
+	                            <regular
+	                                jcr:primaryType="nt:unstructured"
+	                                text="Regular"
+	                                value="regular"/>
+	                            <search
+	                                jcr:primaryType="nt:unstructured"
+	                                text="Search"
+	                                value="search"/>
+	                         </options>
+	                    </webtreandsmetadatatype>
+	                    <webtreandsmetadatavalue
+	                        jcr:primaryType="cq:Widget"
+	                        fieldDescription="Value to be added to the WebTreands metadata. If you leave it blank, this will be inherit from parent pages. Otherwise, will be overwritten."
+	                        fieldLabel="WebTreands MetaData Value"
+	                        name="./webtreandsmetadatavalue"
+	                        type="textfield" />
+                    </items>
+                </analytics>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>
