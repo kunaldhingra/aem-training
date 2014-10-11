@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="400"
+    stateful="false"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <staticbasic jcr:primaryType="cq:Panel" title="Basic">
+					<items jcr:primaryType="cq:WidgetCollection">
+						<dynamicvalues
+						    jcr:primaryType="cq:Widget"
+						    path="/apps/prodigious/components/content/title/dialog/items/tabs/items/basic/items/dynamicvalues.infinity.json"
+							xtype="cqinclude"/>
+					</items>
+				</staticbasic>
+				<basiccqinclude
+				    jcr:primaryType="cq:Widget"
+				    path="/apps/prodigious/components/content/title/dialog/items/tabs/items/basic.infinity.json"
+					xtype="cqinclude"/>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>
