@@ -40,6 +40,9 @@
 	<div class="container">
 	  <!-- Example row of columns -->
 	  <div class="row">
+	  	<div class="col-md-12">
+	  		<cq:include path="breadcrumb" resourceType="prodigious/components/content/breadcrumb" />
+	  	</div>
 	  	<cq:include script="content.jsp" />
 	  </div>
 	
