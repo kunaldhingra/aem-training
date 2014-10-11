@@ -10,6 +10,8 @@
 				<h1>${currentPage.title}</h1>
 			</c:when>
 		</c:choose>
+		<p>Calling list selector: </p>
+		<%= resource.getPath() %>
 	</c:when>
 	<c:otherwise>
 		<c:if test="${isEditMode}">
