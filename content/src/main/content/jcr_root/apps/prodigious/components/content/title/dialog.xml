@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="400"
+    stateful="false"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <basic jcr:primaryType="cq:Panel" title="Basic">
+					<items jcr:primaryType="cq:WidgetCollection">
+						<title
+						    jcr:primaryType="cq:Widget"
+						    fieldLabel="Title" 
+						    name="./title"
+							xtype="textfield" />
+						<type
+						    jcr:primaryType="cq:Widget"
+						    allowBlank="false" 
+						    fieldLabel="Type" 
+						    name="./type"
+						    type="select"
+							xtype="selection">
+							<options jcr:primaryType="cq:WidgetCollection">
+				                <static
+				                    jcr:primaryType="nt:unstructured"
+				                    text="Static"
+				                    value="static"/>
+				                <dynamic
+				                    jcr:primaryType="nt:unstructured"
+				                    text="Dynamic"
+				                    value="dynamic"/>
+				            </options>
+				            <listeners jcr:primaryType="nt:unstructured" 
+				            	loadcontent="function(field, record, path) { var container = field.findParentByType('panel'); var titleField = container.getComponent(0); if (field.getValue() == 'static') { titleField.hide(); } else { titleField.show(); } }"
+				            	selectionchanged="function(field, value, isChecked) { var container = field.findParentByType('panel'); var titleField = container.getComponent(0); if (field.getValue() == 'static') { titleField.hide(); } else { titleField.show(); } }"
+				            	/>
+						</type>
+						<dynamicvalues
+						    jcr:primaryType="cq:Widget"
+						    fieldLabel="Dynamic values" 
+						    name="./dynamicvalues"
+						    type="select"
+							xtype="selection"
+							options="$PATH.options.json" />
+					</items>
+				</basic>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>
