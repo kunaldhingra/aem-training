@@ -6,10 +6,13 @@ import java.util.List;
 
 import com.day.cq.wcm.api.Page;
 
+import cr.prodigious.aem.HelloService;
 import cr.prodigious.aem.breadcrumb.model.BreadcrumbLink;
 
 public class BreadcrumbController {
-
+	
+	private HelloService helloService;
+	
 	/**
 	 * Method to get the breadcrumb links.
 	 * 
@@ -48,5 +51,20 @@ public class BreadcrumbController {
 		newBreadcrumbLink.setTitle(page.getTitle());
 
 		return newBreadcrumbLink;
+	}
+
+	/**
+	 * @param helloService the helloService to set
+	 */
+	public void setHelloService(HelloService helloService) {
+		this.helloService = helloService;
+	}
+	
+	public String getActualRepository() {
+		if (helloService != null) {
+			return helloService.getRepositoryName();
+		} else {
+			return "";
+		}
 	}
 }
